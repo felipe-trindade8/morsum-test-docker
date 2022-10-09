@@ -13,14 +13,13 @@ services:
         - GID=${GID:-1000}
     container_name: morsum_test_nginx
     ports:
-      - 80:80
+      - 1910:80
     volumes:
       - ./src:/var/www/html:delegated
     depends_on:
       - php
       - redis
       - mysql
-      - mailhog
     networks:
       - laravel
 
@@ -30,7 +29,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - 3306:3306
+      - 4306:3306
     environment:
       MYSQL_DATABASE: homestead
       MYSQL_USER: homestead
@@ -59,7 +58,7 @@ services:
     container_name: morsum_test_redis
     restart: unless-stopped
     ports:
-      - 6379:6379
+      - 63790:6379
     networks:
       - laravel
 
